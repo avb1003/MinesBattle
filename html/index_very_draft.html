@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<?php
+$HEADER="Домашний сайт Барсукова А.В";
+include "functions.php";
+function img($name) {
+    # return "<img src=\"images/".$name.".svg\" width=15 height=15 />";
+    # return sprintf("<img src=\"%1$s.%2$s\" width=%3$d height=%3$d/>",$name,"png",20);
+    $image_type="png";
+    # return sprintf("<img src=\"images/%1$s.%2$s\" width=%3$d height=%3$d/>",$name,$image_type,20);
+    return sprintf("<img align=\"center\" src=\"images/%s.%s\" width=%d height=%d/>",$name,$image_type,20,20);
+}
+?>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<head>
+<title><?php echo $HEADER ?></title>
+<link rel="icon" href="/icons/myicon.ico" type="image/x-icon">
+<style type="text/css">
+body { margin: 10px; }
+</style>
+</head>
+<body bgcolor="#ffeeee" text="#000000">
+<H3> To be done soon </H3>
+<?php 
+	    session_start();
+    if($_SESSION['logged']){
+    echo "<br>logon as ".$_SESSION['username']."&nbsp";
+    echo href("logout.php","logout:");
+    # print_r($_SESSION);
+    } else {
+    # print_r($_SESSION);
+    echo href("login_page.php","login:");
+    }
+include "very_draft.php";
+?>
